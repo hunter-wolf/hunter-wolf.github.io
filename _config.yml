@@ -10,7 +10,7 @@ title: Hunter & Wolf
 email: hello@hunter-wolf.com
 description: Thoughts on management and computer science
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://hunter-wolf.com" # the base hostname & protocol for your site
 twitter_username: hunter-wolf
 github_username:  hunter-wolf
 paginate: 5
