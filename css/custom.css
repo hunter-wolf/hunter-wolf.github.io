@@ -1,0 +1,40 @@
+/****** PLACE YOUR CUSTOM STYLES HERE ******/
+#particles-js {
+  background:#fff;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+
+  #particles-js h4 {
+    padding-top:10%;
+  }
+
+  #particles-js canvas {
+    margin-top:-18%;
+  }
+
+  #say-hi {
+    color:#0000ff;
+    cursor:pointer;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  #particles-js h4 {
+    display: none;
+  }
+
+}
+
+#particles-container {
+	max-height:500px;
+	padding: 0!important;
+	margin-bottom:40px;
+}
+
+#header-link-name:hover, #header-link-name:active {
+	color: #333;
+}
