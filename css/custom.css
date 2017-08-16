@@ -1,6 +1,32 @@
 /****** PLACE YOUR CUSTOM STYLES HERE ******/
 #particles-js {
-	background:#fff;
+  background:#fff;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+
+  #particles-js h4 {
+    padding-top:10%;
+  }
+
+  #particles-js canvas {
+    margin-top:-18%;
+  }
+
+  #say-hi {
+    color:#0000ff;
+    cursor:pointer;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  #particles-js h4 {
+    display: none;
+  }
+
 }
 
 #particles-container {
