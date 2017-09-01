@@ -4,8 +4,7 @@ layout: default
 
 <div class="home">
 
-
-  {% for post in paginated.posts%}
+  {% for post in paginator.posts %}
   <div class="post postContent">
     <div  class="postDate"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
     </div>
@@ -22,14 +21,14 @@ layout: default
   </div>
 
   {% endfor %}
-  {% if paginated.total_pages > 1 %}
+  {% if paginator.total_pages > 1 %}
     <nav class="pagination">
-      {% if paginated.previous_page %}
-        <a class="paginationLink" href="{{ paginated.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+      {% if paginator.previous_page %}
+        <a class="paginationLink" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
       {% endif %}
 
-    {% for page in (1..paginated.total_pages) %}
-      {% if page == paginated.page %}
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
         <em class="paginationLink paginationLinkCurrent">{{ page }}</em>
       {% elsif page == 1 %}
         <a class="paginationLink" href="/">{{ page }}</a>
@@ -38,8 +37,8 @@ layout: default
       {% endif %}
     {% endfor %}
 
-    {% if paginated.next_page %}
-      <a class="paginationLink" href="{{ paginated.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+    {% if paginator.next_page %}
+      <a class="paginationLink" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
     {% endif %}
     </nav>
   {% endif %}
