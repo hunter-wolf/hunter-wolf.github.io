@@ -1,0 +1,44 @@
+I"�<p>One challenge with testing microservices, or any service architecture, is keeping the delivery pipeline speedy. For services that operate as consumers primarily, providers may be numerous and evolving — requiring the latest copies of provider services or up to date stub services. For providers, the best way to ensure that a change doesn’t break consumers is to get the latest copies of consumers and run their integration tests. These alternatives are not ideal — they can require tremendous space complexity, extend delivery time, and extend integration time.</p>
+
+<p>Imagine attempting to deploy a single-letter typo fix on a React component for login that requires 32 minutes of set up and tear down to ensure breaking changes have not occurred.</p>
+
+<p>Consumer Driven Contracts help lower testing time and ensure that providers do not commit breaking changes without warning that they may be doing so. Contracts can have multiple forms, from a simple Wiki page or spreadsheet to a specification that can be used to run tests on a provider. These contracts list requests that are sent to provider services, and the expected response. For example, a GET request to the <code class="highlighter-rouge">/listings</code> url of a REST API should return a JSON response that fits a minimum schema of:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"House for sale at 122 Main street"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"openHouse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-04T16:00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>An example use case we recently encountered involved a REST API (provider) and a React+Redux front end (consumer). For this purpose, we found <a href="https://docs.pact.io/">Pact.io</a> to help us write contracts and test them against our provider REST API.</p>
+
+<p>Pact is effectively a specification, with multiple implementations. The underlying contract specification can be targeted by existing test frameworks. And testing contracts against providers is similarly targeted by multiple implementations. In our case, the Mocha test framework would generate a contract based on integration tests written for the REST API. We then used the JVM implementation integrated with Leiningen for the REST API tests. The glue between this process was with CircleCI. Our pipeline worked in this way:</p>
+
+<ol>
+  <li>On commit, CircleCI trigger Mocha tests, which in turn ran PactJS to generate our contract.</li>
+  <li>On successful build, the contract was stored as a build artifact.</li>
+  <li>Later when a commit was made by the REST API, CircleCI picked up the latest build artifacts from our front end tests from #2.</li>
+  <li>After running unit and integration tests on the REST API, Pact JVM initiated and ran the contract against the RESt API</li>
+</ol>
+
+<p>On failure, the build would fail and we would be notified of breaking changes in the API. On success, the build was proceed to delivery to the correct environment.</p>
+
+<p>This was undoubtedly superior to a grand end-to-end test on every delivery. However, it was still somewhat difficult to arrange intially–the number of pieces to put together was challenging. And Pact didn’t appear to supply a way to stub services for more integration tests with our consumer. Given that we used OpenAPI documentation for our Provider, it seemed to duplicate the information required to run contract tests. Finally, the space complexity for the Pact JVM version seemed excessive; we used a lot of memory to keep PostreSQL, our JVM provider service, and Pact JVM up and running. Which was OK. But the start up and tear down times were longer than ideal.</p>
+
+<p>Pact is a good option when the number of services increases and end-to-end tests become expensive. But there are areas of improvement. We will be watching this space evolve for improvements to CDC testing. We hope to see and anticipate seeing the following improvements:</p>
+
+<ol>
+  <li>A tool to help consumers and providers generate OpenAPI or other specifications for REST APIs</li>
+  <li>These specifications will generate contracts or be synonymous with contracts</li>
+  <li>A tool that will read and apply generated contracts to providers</li>
+  <li>A tool that will read and apply generated contracts to create stub services</li>
+  <li>Possibly, a way to automatically create integration tests based on contracts and stub services</li>
+</ol>
+
+:ET
