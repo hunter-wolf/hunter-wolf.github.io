@@ -1,38 +1,4 @@
----
-layout: null
----
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="theme-color" content="#3ed2a7">
-	
-	<link rel="shortcut icon" href="/favicon.ico" />
-	
-	<title>Blog | Hunter & Wolf</title>
-	
-	<link rel="stylesheet" href="https://use.typekit.net/qxb8htk.css">
-	
-	<link rel="stylesheet" href="/assets/vendors/liquid-icon/liquid-icon.min.css" />
-	<link rel="stylesheet" href="/assets/vendors/font-awesome/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="/assets/css/theme-vendors.min.css" />
-	<link rel="stylesheet" href="/assets/css/theme.min.css" />
-	<link rel="stylesheet" href="/assets/css/themes/original.css" />
-	
-	<!-- Head Libs -->
-	<script async src="/assets/vendors/modernizr.min.js"></script>
-	
-</head>
-<body class="blog" data-mobile-nav-trigger-alignment="right" data-mobile-nav-align="left" data-mobile-nav-style="modern" data-mobile-nav-shceme="gray" data-mobile-header-scheme="gray" data-mobile-nav-breakpoint="1199">
-	
-	<div id="wrap">
-		
-		<div class="titlebar titlebar-sm scheme-light text-center" data-parallax="true" data-parallax-options='{ "parallaxBG": true }' style="background-image: url(/assets/img/blog3.jpg);">
-			
 			<header class="main-header main-header-overlay" data-react-to-megamenu="true" data-sticky-header="true" data-sticky-options='{ "stickyTrigger": "first-section" }'>
 			
 				<div class="mainbar-wrap">
@@ -43,7 +9,7 @@ layout: null
 								
 								<div class="col">
 									<div class="navbar-header">
-										<a class="navbar-brand" href="index.html" rel="home">
+										<a class="navbar-brand" href="/" rel="home">
 											<span class="navbar-brand-inner">
 												<img style="height:35px;" class="logo-dark" src="/assets/img/logo.svg" alt="Hunter & Wolf">
 											<img style="height:35px;" class="logo-sticky" src="/assets/img/logo.svg" alt="Hunter & Wolf">
@@ -69,7 +35,7 @@ layout: null
 										<ul id="primary-nav" class="main-nav nav align-items-lg-stretch justify-content-lg-center" data-submenu-options='{ "toggleType":"fade", "handler":"mouse-in-out" }'>
 											
 											<li>
-												<a href="index-opus.html">
+												<a href="/">
 													<span class="link-icon"></span>
 													<span class="link-txt">
 														<span class="link-ext"></span>
@@ -95,7 +61,7 @@ layout: null
 												</a>
 											</li>
 											<li class="menu-item-has-children megamenu megamenu-fullwidth">
-												<a href="#">
+												<a href="/philosophy">
 													<span class="link-icon"></span>
 													<span class="link-txt">
 														<span class="link-ext"></span>
@@ -107,7 +73,7 @@ layout: null
 												
 											</li>
 											<li class="menu-item-has-children">
-												<a href="#">
+												<a href="/blog">
 													<span class="link-icon"></span>
 													<span class="link-txt">
 														<span class="link-ext"></span>
@@ -142,84 +108,3 @@ layout: null
 				</div><!-- /.mainbar-wrap -->
 				
 			</header><!-- /.main-header -->
-
-			<div class="titlebar-inner">
-				<div class="container titlebar-container">
-					<div class="row titlebar-container">
-						<div class="titlebar-col col-md-12">
-							<h1 data-fittext="true" data-fittext-options='{ "maxFontSize": 80, "minFontSize": 32 }'>Blog</h1>
-							<a class="titlebar-scroll-link" href="#content" data-localscroll="true"><i class="fa fa-angle-down"></i></a>
-						</div><!-- /.titlebar-col -->
-					</div><!-- /.titlebar-row -->
-				</div><!-- /.titlebar-container -->
-			</div><!-- /.titlebar-inner -->
-			
-		</div><!-- /.titlebar -->
-	
-		<main id="content" class="content">
-			
-			<section class="vc_row">
-				<div class="container">
-					<div class="row">
-
-						<div class="lqd-column col-md-12">
-
-							<div class="liquid-blog-posts">
-								<div class="liquid-blog-grid row" data-liquid-masonry="true">
-	
-									{% for post in site.posts %}
-									<div class="lqd-column col-md-3 col-sm-6 masonry-item">
-	
-										<article class="liquid-lp mb-40">
-	
-											<figure class="liquid-lp-media">
-												<a href="{{ post.url }}">
-													<img src="{{ post.thumb }}" alt="{{ post.title }}">
-												</a>
-											</figure>
-										
-											<header class="liquid-lp-header">
-												<h2 class="liquid-lp-title h4 font-size-19"><a href="{{ post.url }}">{{post.title}}</a></h2>
-											</header>
-										
-											<div class="liquid-lp-excerpt">
-												<p>{{ post.content | strip_html | truncate:100}}</p>
-											</div><!-- /.latest-post-excerptc -->
-										
-											<footer class="liquid-lp-footer">
-												<a href="{{ post.url }}" class="btn btn-naked liquid-lp-read-more font-weight-bold">
-													<span>
-														<span class="btn-txt">Read more</span>
-														<span class="btn-icon">
-															<i class="fa fa-angle-right"></i>
-														</span>
-													</span>
-												</a>
-											</footer>
-										
-										</article>
-	
-									</div><!-- /.col-md-3 col-sm-6 -->
-									{% endfor %}
-	
-								</div><!-- /.liquid-blog-grid row -->
-							</div><!-- /.liquid-blog-posts -->
-
-						</div><!-- /.col-md-12 -->
-
-					</div><!-- /.row -->
-				</div><!-- /.container -->
-			</section><!-- /.vc_row -->
-			
-		</main><!-- /#content.content -->
-		
-		{% include footer.html %}
-	
-	</div><!-- /#wrap -->
-
-	<script src="/assets/vendors/jquery.min.js"></script>
-	<script src="/assets/js/theme-vendors.js"></script>
-	<script src="/assets/js/theme.min.js"></script>
-
-</body>
-</html>
