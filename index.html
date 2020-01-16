@@ -171,19 +171,20 @@ layout: null
 								data-split-text="true"
 								data-split-options='{"type":"lines"}'
 								data-fittext="true"
-								data-fittext-options='{"compressor": 0.75, "maxFontSize": 52}'>Effective and powerful tech for your organization.
+								data-fittext-options='{"compressor": 0.75, "maxFontSize": 52}'>Effective and specialized tech for your organization.
 							</h2>
 
-							<p class="font-size-20 lh-175 text-fade-white-07 pr-md-9 mr-md-9 mb-50 ">The right decisions, at the right time, make the difference between a success and a loss.</p>
+							<p class="font-size-20 lh-175 text-fade-white-07 pr-md-9 mr-md-9 mb-50 ">We deliver the clarity and expertise to your operations that make the difference.</p>
 
-							<a href="https://www.youtube.com/watch?v=YJ5q8Wrkbdw&t" class="btn btn-naked fresco btn-icon-left btn-icon-xxlg btn-icon-circle btn-icon-solid btn-icon-ripple text-white">
+							<!-- <a href="https://youtube.com/" class="btn btn-naked fresco btn-icon-left btn-icon-xxlg btn-icon-circle btn-icon-solid btn-icon-ripple text-white">
 								<span>
-									<span class="btn-txt">See how it works</span>
+									<span class="btn-txt">Set a meeting time</span>
+						
 									<span class="btn-icon font-size-16 bg-white text-white">
-										<i class="fa fa-play text-dark"></i>
+										<i  class="fa fa-play text-dark"></i>
 									</span>
 								</span>
-							</a>
+							</a> -->
 
 						</div><!-- /.col-md-7 -->
 
@@ -197,10 +198,10 @@ layout: null
 								</header><!-- /.fancy-title -->
 
 								<div class="contact-form contact-form-inputs-filled contact-form-button-block font-size-14">
-									<form action="assets/php/mailer.php" method="post" novalidate="novalidate">
+									<form action="/" method="post" novalidate="novalidate">
 										<div class="row">
 											<div class="col-md-12">
-												<input class="bg-gray text-dark" type="text" name="name" aria-required="true" aria-invalid="false" placeholder="First Name" required>
+												<input id="appt-name" class="bg-gray text-dark" type="text" name="name" aria-required="true" aria-invalid="false" placeholder="First Name" required>
 											</div><!-- /.col-md-12 -->
 											<div class="col-md-12">
 												<input class="bg-gray text-dark" type="email" name="email" aria-required="true" aria-invalid="false" placeholder="Your email address" required>
@@ -246,9 +247,9 @@ layout: null
 									</figure>
 									<div class="cb-img-btn">
 										<div class="cb-img-btn-bg"></div>
-										<a href="#" class="liquid-overlay-link"></a>
+										<a href="/process" class="liquid-overlay-link"></a>
 										<div class="cb-img-btn-inner">
-											<a href="#" class="btn btn-naked ld_button_5c7fc49d34c89">
+											<a href="/process" class="btn btn-naked ld_button_5c7fc49d34c89">
 												<span>
 													<span class="btn-txt">Learn more</span>
 													<span class="btn-icon"><i class="fa fa-angle-right"></i></span>
@@ -276,9 +277,9 @@ layout: null
 									</figure>
 									<div class="cb-img-btn">
 										<div class="cb-img-btn-bg"></div>
-										<a href="#" class="liquid-overlay-link"></a>
+										<a href="/services" class="liquid-overlay-link"></a>
 										<div class="cb-img-btn-inner">
-											<a href="#" class="btn btn-naked ld_button_5c7fc49d34c89">
+											<a href="/services" class="btn btn-naked ld_button_5c7fc49d34c89">
 												<span>
 													<span class="btn-txt">Learn more</span>
 													<span class="btn-icon"><i class="fa fa-angle-right"></i></span>
@@ -306,9 +307,9 @@ layout: null
 									</figure>
 									<div class="cb-img-btn">
 										<div class="cb-img-btn-bg"></div>
-										<a href="#" class="liquid-overlay-link"></a>
+										<a href="/philosophy" class="liquid-overlay-link"></a>
 										<div class="cb-img-btn-inner">
-											<a href="#" class="btn btn-naked ld_button_5c7fc49d34c89">
+											<a href="/philosophy" class="btn btn-naked ld_button_5c7fc49d34c89">
 												<span>
 													<span class="btn-txt">Learn more</span>
 													<span class="btn-icon"><i class="fa fa-angle-right"></i></span>
@@ -573,10 +574,10 @@ layout: null
 								<div class="lqd-column col-sm-6">
 
 									<ul class="reset-ul text-fade-white-08 ltr-sp-025">
-										<li class="mb-3">Programming</li>
+										<li class="mb-3">Software Architecture</li>
 										<li class="mb-3">Agile Methodology</li>
 										<li class="mb-3">Continuous Integration</li>
-										<li class="mb-3">Content Management</li>
+										<li class="mb-3">Programming</li>
 										<li class="mb-3">CRM Integrations</li>
 										<li class="mb-3">Mobile Applications</li>
 									</ul>
@@ -586,12 +587,12 @@ layout: null
 								<div class="lqd-column col-sm-6">
 
 									<ul class="reset-ul text-fade-white-08 ltr-sp-025">
-										<li class="mb-3">Consulting</li>
-										<li class="mb-3">Data Scraping</li>
-										<li class="mb-3">Private Blockchain</li>
-										<li class="mb-3">Public Blockchain</li>
-										<li class="mb-3">Healthcare</li>
-										<li class="mb-3">Functional Programming</li>
+										<li class="mb-3">Cloud Architecture</li>
+										<li class="mb-3">Data Collection</li>
+										<li class="mb-3">Management Consulting</li>
+										<li class="mb-3">Blockchain</li>
+										<li class="mb-3">Healthcare Solutions</li>
+										<li class="mb-3">Database Administration</li>
 									</ul>
 
 								</div><!-- /.lqd-column col-sm-6 -->
@@ -642,10 +643,19 @@ layout: null
 	</div><!-- /#wrap -->
 
 	<script src="./assets/vendors/jquery.min.js"></script>
+	<script>
+			jq2 = jQuery.noConflict();
+			jq2(function($) {
+				$("#appt-now").click(function () {
+					$("#appt-name").focus().css({"border-color" : "green"});
+				});
+			});
+		</script>
 	<script src="./assets/js/theme-vendors.js"></script>
 	<script src="./assets/js/theme.min.js"></script>
 	<script src="./assets/js/liquidAjaxContactForm.min.js"></script>
 	<script src="./assets/js/liquidAjaxMailchimp.min.js"></script>
+
 
 </body>
 </html>
