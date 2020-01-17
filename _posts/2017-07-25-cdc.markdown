@@ -5,6 +5,7 @@ date:   2017-07-25
 categories: ["architecture"]
 thumb: /assets/img/cdc-thumb.jpg
 background: /assets/img/cdc.jpg
+excerpt: Testing microservices is work, and consumer driven contracts help ensure your producer services are compliant when updated.
 ---
 One challenge with testing microservices, or any service architecture, is keeping the delivery pipeline speedy. For services that operate as consumers primarily, providers may be numerous and evolving --- requiring the latest copies of provider services or up to date stub services. For providers, the best way to ensure that a change doesn't break consumers is to get the latest copies of consumers and run their integration tests. These alternatives are not ideal --- they can require tremendous space complexity, extend delivery time, and extend integration time.
 

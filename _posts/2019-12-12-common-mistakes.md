@@ -5,7 +5,7 @@ date:   2019-12-12
 categories: ["architecture"]
 thumb: /assets/img/ruler-thumb.jpg
 background: /assets/img/ruler.jpg
-excerpt: common errors
+excerpt: Mistakes are expensive and persistent, there are four common mistakes worth taking into consideration when planning a new software project.
 ---
 
 ### Once Upon a Time
