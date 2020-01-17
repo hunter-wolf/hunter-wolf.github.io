@@ -117,3 +117,9 @@
 </script>
 
 
+<script>
+    jq2 = jQuery.noConflict();
+    jq2(function($) {
+      $('form').submit(function(e){ e.preventDefault(); window.location.replace('https://hunter-wolf.com/thanks'); });
+    });
+  </script>
