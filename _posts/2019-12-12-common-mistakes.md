@@ -5,6 +5,7 @@ date:   2019-12-12
 categories: ["architecture"]
 thumb: /assets/img/ruler-thumb.jpg
 background: /assets/img/ruler.jpg
+excerpt: common errors
 ---
 
 ### Once Upon a Time
